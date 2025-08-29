@@ -10,6 +10,13 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod("vulkanmod")
 public class VulkanMod {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger("VulkanMod");
+    public static final Config CONFIG = new Config();
+
+    public static String getVersion() {
+        return "dev"; // либо более сложная логика, если нужно
+
+
     public VulkanMod() {
         // Общая инициализация, если понадобится.
     }

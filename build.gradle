@@ -49,7 +49,8 @@ dependencies {
     compileOnly "it.unimi.dsi:fastutil:${fastutilVersion}"
     compileOnly "org.jetbrains:annotations:${jbAnnoVersion}"
 
-    // LWJGL Shaderc (для SPIR-V компиляции)
+
+    // === LWJGL: Shaderc (для компиляции GLSL -> SPIR-V) ===
     implementation "org.lwjgl:lwjgl-shaderc:${lwjglVersion}"
     runtimeOnly   "org.lwjgl:lwjgl-shaderc:${lwjglVersion}:natives-windows"
 
@@ -68,6 +69,8 @@ sourceSets {
             exclude 'net/vulkanmod/render/chunk/build/renderer/BlockRenderer.java' // fabric BlendMode/RenderMaterial/TriState
             exclude 'net/vulkanmod/render/model/CubeModel.java'               // упирается в непубличный ModelPart.Polygon
             exclude 'net/vulkanmod/mixin/texture/update/MSpriteContents.java' // упирается в непубличный AnimatedTexture (раньше AW)
+            exclude 'net/vulkanmod/mixin/vertex/EntityOutlineGeneratorM.java'
+
         }
         resources {
             // На всякий: никаких fabric.mod.json, accesswidener и т.п.
