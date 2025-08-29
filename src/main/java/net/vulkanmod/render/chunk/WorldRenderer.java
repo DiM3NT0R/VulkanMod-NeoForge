@@ -22,7 +22,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.Vec3;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.PipelineManager;
 import net.vulkanmod.render.chunk.buffer.DrawBuffers;
 import net.vulkanmod.render.chunk.build.RenderRegionBuilder;
@@ -208,7 +207,7 @@ public class WorldRenderer {
             if (this.taskDispatcher.updateSections())
                 this.graphNeedsUpdate = true;
         } catch (Exception e) {
-            Initializer.LOGGER.error(e.getMessage());
+            net.vulkanmod.Initializer.LOGGER.error(e.getMessage());
             allChanged();
         }
 
@@ -227,7 +226,7 @@ public class WorldRenderer {
             this.level.clearTintCaches();
 
             this.renderRegionCache.clear();
-            this.taskDispatcher.createThreads(Initializer.CONFIG.builderThreads);
+            this.taskDispatcher.createThreads(net.vulkanmod.Initializer.CONFIG.builderThreads);
 
             this.graphNeedsUpdate = true;
 
@@ -298,7 +297,7 @@ public class WorldRenderer {
         this.minecraft.getProfiler().popPush(() -> "render_" + renderType);
 
         final boolean isTranslucent = terrainRenderType == TerrainRenderType.TRANSLUCENT;
-        final boolean indirectDraw = Initializer.CONFIG.indirectDraw;
+        final boolean indirectDraw = net.vulkanmod.Initializer.CONFIG.indirectDraw;
 
         VRenderSystem.applyMVP(modelView, projection);
         VRenderSystem.setPrimitiveTopologyGL(GL11.GL_TRIANGLES);
@@ -313,7 +312,7 @@ public class WorldRenderer {
         Renderer.getDrawer().bindIndexBuffer(Renderer.getCommandBuffer(), indexBuffer, indexBuffer.indexType.value);
 
         int currentFrame = Renderer.getCurrentFrame();
-        Set<TerrainRenderType> allowedRenderTypes = Initializer.CONFIG.uniqueOpaqueLayer ? TerrainRenderType.COMPACT_RENDER_TYPES : TerrainRenderType.SEMI_COMPACT_RENDER_TYPES;
+        Set<TerrainRenderType> allowedRenderTypes = net.vulkanmod.Initializer.CONFIG.uniqueOpaqueLayer ? TerrainRenderType.COMPACT_RENDER_TYPES : TerrainRenderType.SEMI_COMPACT_RENDER_TYPES;
         if (allowedRenderTypes.contains(terrainRenderType)) {
             terrainRenderType.setCutoutUniform();
 

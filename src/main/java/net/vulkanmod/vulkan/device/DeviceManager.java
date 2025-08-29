@@ -1,7 +1,6 @@
 package net.vulkanmod.vulkan.device;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.vulkan.VRenderSystem;
 import net.vulkanmod.vulkan.Vulkan;
 import net.vulkanmod.vulkan.queue.*;
@@ -49,7 +48,7 @@ public abstract class DeviceManager {
             DeviceManager.pickPhysicalDevice();
             DeviceManager.createLogicalDevice();
         } catch (Exception e) {
-            Initializer.LOGGER.info(getAvailableDevicesInfo());
+            net.vulkanmod.Initializer.LOGGER.info(getAvailableDevicesInfo());
             throw new RuntimeException(e);
         }
     }
@@ -98,12 +97,12 @@ public abstract class DeviceManager {
     public static void pickPhysicalDevice() {
         try (MemoryStack stack = stackPush()) {
 
-            int deviceIdx = Initializer.CONFIG.device;
+            int deviceIdx = net.vulkanmod.Initializer.CONFIG.device;
             if (deviceIdx >= 0 && deviceIdx < suitableDevices.size())
                 DeviceManager.device = suitableDevices.get(deviceIdx);
             else {
                 DeviceManager.device = autoPickDevice();
-                Initializer.CONFIG.device = -1;
+                net.vulkanmod.Initializer.CONFIG.device = -1;
             }
 
             physicalDevice = DeviceManager.device.physicalDevice;

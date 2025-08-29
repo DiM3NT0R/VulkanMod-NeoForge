@@ -2,7 +2,6 @@ package net.vulkanmod.mixin.window;
 
 import com.mojang.blaze3d.platform.*;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.config.Config;
 import net.vulkanmod.config.Platform;
 import net.vulkanmod.config.video.VideoModeManager;
@@ -126,7 +125,7 @@ public abstract class WindowMixin {
      */
     @Overwrite
     private void setMode() {
-        Config config = Initializer.CONFIG;
+        Config config = net.vulkanmod.Initializer.CONFIG;
 
         long monitor = GLFW.glfwGetPrimaryMonitor();
         if (this.fullscreen) {

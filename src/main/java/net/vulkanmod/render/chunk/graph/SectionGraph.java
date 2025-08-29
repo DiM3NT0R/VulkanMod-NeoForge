@@ -9,7 +9,6 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.interfaces.FrustumMixed;
 import net.vulkanmod.render.chunk.*;
 import net.vulkanmod.render.chunk.build.RenderRegionBuilder;
@@ -160,7 +159,7 @@ public class SectionGraph {
     }
 
     private void updateRenderChunks() {
-        int maxDirectionsChanges = Initializer.CONFIG.advCulling - 1;
+        int maxDirectionsChanges = net.vulkanmod.Initializer.CONFIG.advCulling - 1;
 
         while (this.sectionQueue.hasNext()) {
             RenderSection renderSection = this.sectionQueue.poll();

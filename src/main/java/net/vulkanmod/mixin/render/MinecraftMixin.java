@@ -5,7 +5,6 @@ import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.main.GameConfig;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.texture.SpriteUpdateUtil;
 import net.vulkanmod.vulkan.Renderer;
 import net.vulkanmod.vulkan.Vulkan;
@@ -31,7 +30,7 @@ public class MinecraftMixin {
         var graphicsModeOption = this.options.graphicsMode();
 
         if (graphicsModeOption.get() == GraphicsStatus.FABULOUS) {
-            Initializer.LOGGER.error("Fabulous graphics mode not supported, forcing Fancy");
+            net.vulkanmod.Initializer.LOGGER.error("Fabulous graphics mode not supported, forcing Fancy");
             graphicsModeOption.set(GraphicsStatus.FANCY);
         }
     }

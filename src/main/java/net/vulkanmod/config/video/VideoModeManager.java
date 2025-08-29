@@ -1,6 +1,5 @@
 package net.vulkanmod.config.video;
 
-import net.vulkanmod.Initializer;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 
@@ -22,7 +21,7 @@ public abstract class VideoModeManager {
     }
 
     public static void applySelectedVideoMode() {
-        Initializer.CONFIG.videoMode = selectedVideoMode;
+        net.vulkanmod.Initializer.CONFIG.videoMode = selectedVideoMode;
     }
 
     public static VideoModeSet[] getVideoResolutions() {

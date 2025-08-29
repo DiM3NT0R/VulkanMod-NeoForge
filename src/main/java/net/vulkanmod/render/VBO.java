@@ -108,8 +108,8 @@ public class VBO {
             this.indexBuffer = new IndexBuffer(data.remaining(), MemoryTypes.GPU_MEM);
             this.indexBuffer.copyBuffer(data, data.remaining());
 
-            // ВАЖНО: раз буфер свой, а не авто — флаг должен быть false,
-            // чтобы close() корректно его освобождал.
+            // Р’РђР–РќРћ: СЂР°Р· Р±СѓС„РµСЂ СЃРІРѕР№, Р° РЅРµ Р°РІС‚Рѕ вЂ” С„Р»Р°Рі РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ false,
+            // С‡С‚РѕР±С‹ close() РєРѕСЂСЂРµРєС‚РЅРѕ РµРіРѕ РѕСЃРІРѕР±РѕР¶РґР°Р».
             this.autoIndexed = false;
         }
     }
@@ -123,7 +123,7 @@ public class VBO {
             VRenderSystem.applyMVP(modelView, projection);
             VRenderSystem.setPrimitiveTopologyGL(this.mode.asGLMode);
 
-            // Передаём актуальный режим, а не всегда QUADS
+            // РџРµСЂРµРґР°С‘Рј Р°РєС‚СѓР°Р»СЊРЅС‹Р№ СЂРµР¶РёРј, Р° РЅРµ РІСЃРµРіРґР° QUADS
             shaderInstance.setDefaultUniforms(this.mode, modelView, projection, Minecraft.getInstance().getWindow());
             shaderInstance.apply();
 

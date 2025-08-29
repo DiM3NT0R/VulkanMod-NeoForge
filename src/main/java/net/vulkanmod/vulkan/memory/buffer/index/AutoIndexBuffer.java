@@ -1,6 +1,5 @@
 package net.vulkanmod.vulkan.memory.buffer.index;
 
-import net.vulkanmod.Initializer;
 import net.vulkanmod.vulkan.memory.buffer.IndexBuffer;
 import net.vulkanmod.vulkan.memory.MemoryTypes;
 import org.lwjgl.system.MemoryUtil;
@@ -60,7 +59,7 @@ public class AutoIndexBuffer {
     public void checkCapacity(int vertexCount) {
         if(vertexCount > this.vertexCount) {
             int newVertexCount = this.vertexCount * 2;
-            Initializer.LOGGER.info("Reallocating AutoIndexBuffer from {} to {}", this.vertexCount, newVertexCount);
+            net.vulkanmod.Initializer.LOGGER.info("Reallocating AutoIndexBuffer from {} to {}", this.vertexCount, newVertexCount);
 
             this.indexBuffer.scheduleFree();
             createIndexBuffer(newVertexCount);

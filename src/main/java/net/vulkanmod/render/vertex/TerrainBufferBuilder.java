@@ -1,7 +1,6 @@
 package net.vulkanmod.render.vertex;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.vertex.format.I32_SNorm;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.system.MemoryUtil;
@@ -9,7 +8,7 @@ import org.lwjgl.system.MemoryUtil;
 import java.nio.ByteBuffer;
 
 public class TerrainBufferBuilder implements VertexConsumer {
-    private static final Logger LOGGER = Initializer.LOGGER;
+    private static final Logger LOGGER = net.vulkanmod.Initializer.LOGGER;
     private static final MemoryUtil.MemoryAllocator ALLOCATOR = MemoryUtil.getAllocator(false);
 
     private int capacity;

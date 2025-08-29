@@ -15,7 +15,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.TickRateManager;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.chunk.WorldRenderer;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.*;
@@ -54,7 +53,7 @@ public class LevelRendererM {
      */
     @Overwrite
     private void renderEntity(Entity entity, double d, double e, double f, float partialTicks, PoseStack poseStack, MultiBufferSource multiBufferSource) {
-        if (!Initializer.CONFIG.entityCulling || !this.managed) {
+        if (!net.vulkanmod.Initializer.CONFIG.entityCulling || !this.managed) {
             double h = Mth.lerp(partialTicks, entity.xOld, entity.getX());
             double i = Mth.lerp(partialTicks, entity.yOld, entity.getY());
             double j = Mth.lerp(partialTicks, entity.zOld, entity.getZ());
@@ -75,7 +74,7 @@ public class LevelRendererM {
             shift = At.Shift.AFTER, ordinal = 0)
     )
     private void renderEntities(DeltaTracker deltaTracker, boolean bl, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, Matrix4f matrix4f2, CallbackInfo ci) {
-        if (!Initializer.CONFIG.entityCulling)
+        if (!net.vulkanmod.Initializer.CONFIG.entityCulling)
             return;
 
         Vec3 cameraPos = WorldRenderer.getCameraPos();

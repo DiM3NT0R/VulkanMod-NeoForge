@@ -2,7 +2,6 @@ package net.vulkanmod.render.vertex;
 
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.world.level.block.state.BlockState;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.PipelineManager;
 import net.vulkanmod.render.chunk.cull.QuadFacing;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +10,7 @@ import org.lwjgl.system.MemoryUtil;
 import java.nio.ByteBuffer;
 
 public class TerrainBuilder {
-    private static final Logger LOGGER = Initializer.LOGGER;
+    private static final Logger LOGGER = net.vulkanmod.Initializer.LOGGER;
     private static final MemoryUtil.MemoryAllocator ALLOCATOR = MemoryUtil.getAllocator(false);
 
     protected long indexBufferPtr;

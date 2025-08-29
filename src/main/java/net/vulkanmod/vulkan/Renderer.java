@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.Minecraft;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.gl.VkGlFramebuffer;
 import net.vulkanmod.mixin.window.WindowAccessor;
 import net.vulkanmod.render.PipelineManager;
@@ -105,7 +104,7 @@ public class Renderer {
 
     public Renderer() {
         device = Vulkan.getVkDevice();
-        framesNum = Initializer.CONFIG.frameQueueSize;
+        framesNum = net.vulkanmod.Initializer.CONFIG.frameQueueSize;
     }
 
     public static void setLineWidth(float width) {
@@ -480,7 +479,7 @@ public class Renderer {
         //Semaphores need to be recreated in order to make them unsignaled
         destroySyncObjects();
 
-        int newFramesNum = Initializer.CONFIG.frameQueueSize;
+        int newFramesNum = net.vulkanmod.Initializer.CONFIG.frameQueueSize;
 
         if (framesNum != newFramesNum) {
             UploadManager.INSTANCE.submitUploads();

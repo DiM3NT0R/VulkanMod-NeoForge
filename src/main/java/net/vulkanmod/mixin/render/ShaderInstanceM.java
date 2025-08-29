@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceProvider;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.gl.VkGlProgram;
 import net.vulkanmod.interfaces.ShaderMixed;
 import net.vulkanmod.render.shader.ShaderLoadUtil;
@@ -251,7 +250,7 @@ public class ShaderInstanceM implements ShaderMixed {
             ByteBuffer byteBuffer;
 
             if (uniform == null) {
-                Initializer.LOGGER.error(String.format("Error: field %s not present in uniform map", vUniform.getName()));
+                net.vulkanmod.Initializer.LOGGER.error(String.format("Error: field %s not present in uniform map", vUniform.getName()));
 
                 int size = vUniform.getSize();
                 byteBuffer = MemoryUtil.memAlloc(size * 4);
@@ -277,7 +276,7 @@ public class ShaderInstanceM implements ShaderMixed {
         com.mojang.blaze3d.shaders.Uniform uniform1 = this.uniformMap.get(name);
 
         if (uniform1 == null) {
-            Initializer.LOGGER.error(String.format("Error: field %s not present in uniform map", name));
+            net.vulkanmod.Initializer.LOGGER.error(String.format("Error: field %s not present in uniform map", name));
             return null;
         }
 
@@ -348,7 +347,7 @@ public class ShaderInstanceM implements ShaderMixed {
             this.pipeline = builder.createGraphicsPipeline();
             this.doUniformUpdate = true;
         } catch (Exception e) {
-            Initializer.LOGGER.error("Error on shader {} conversion/compilation", this.name);
+            net.vulkanmod.Initializer.LOGGER.error("Error on shader {} conversion/compilation", this.name);
             e.printStackTrace();
         }
     }

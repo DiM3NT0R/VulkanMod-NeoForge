@@ -2,7 +2,6 @@ package net.vulkanmod.vulkan.texture;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.gl.VkGlTexture;
 import net.vulkanmod.vulkan.shader.Pipeline;
 import net.vulkanmod.vulkan.shader.descriptor.ImageDescriptor;
@@ -26,7 +25,7 @@ public abstract class VTextureSelector {
 
     public static void bindTexture(int i, VulkanImage texture) {
         if (i < 0 || i >= SIZE) {
-            Initializer.LOGGER.error(String.format("On Texture binding: index %d out of range [0, %d]", i, SIZE - 1));
+            net.vulkanmod.Initializer.LOGGER.error(String.format("On Texture binding: index %d out of range [0, %d]", i, SIZE - 1));
             return;
         }
 
@@ -36,7 +35,7 @@ public abstract class VTextureSelector {
 
     public static void bindImage(int i, VulkanImage texture, int level) {
         if (i < 0 || i > 7) {
-            Initializer.LOGGER.error(String.format("On Texture binding: index %d out of range [0, %d]", i, SIZE - 1));
+            net.vulkanmod.Initializer.LOGGER.error(String.format("On Texture binding: index %d out of range [0, %d]", i, SIZE - 1));
             return;
         }
 
@@ -99,7 +98,7 @@ public abstract class VTextureSelector {
 
     public static void setActiveTexture(int activeTexture) {
         if (activeTexture < 0 || activeTexture >= SIZE) {
-            Initializer.LOGGER.error(
+            net.vulkanmod.Initializer.LOGGER.error(
                     String.format("On Texture binding: index %d out of range [0, %d]", activeTexture, SIZE - 1));
         }
 

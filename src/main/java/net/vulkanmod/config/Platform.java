@@ -3,7 +3,7 @@ package net.vulkanmod.config;
 import org.apache.commons.lang3.SystemUtils;
 import org.lwjgl.glfw.GLFW;
 
-import static net.vulkanmod.Initializer.LOGGER;
+import static net.vulkanmod.VulkanMod.LOGGER;
 import static org.lwjgl.glfw.GLFW.*;
 
 public abstract class Platform {

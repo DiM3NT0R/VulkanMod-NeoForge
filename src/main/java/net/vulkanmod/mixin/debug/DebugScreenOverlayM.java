@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static net.vulkanmod.Initializer.getVersion;
+import static net.vulkanmod.VulkanMod.getVersion;
 
 @Mixin(DebugScreenOverlay.class)
 public abstract class DebugScreenOverlayM {

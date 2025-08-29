@@ -3,7 +3,6 @@ package net.vulkanmod.config.option;
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.*;
 import net.minecraft.network.chat.Component;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.config.Config;
 import net.vulkanmod.config.gui.OptionBlock;
 import net.vulkanmod.config.video.VideoModeManager;
@@ -19,7 +18,7 @@ import java.util.stream.IntStream;
 
 public abstract class Options {
     public static boolean fullscreenDirty = false;
-    static Config config = Initializer.CONFIG;
+    static Config config = net.vulkanmod.Initializer.CONFIG;
     static Minecraft minecraft = Minecraft.getInstance();
     static Window window = minecraft.getWindow();
     static net.minecraft.client.Options minecraftOptions = minecraft.options;

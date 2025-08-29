@@ -1,7 +1,6 @@
 package net.vulkanmod.vulkan.framebuffer;
 
 import it.unimi.dsi.fastutil.longs.Long2ReferenceOpenHashMap;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.util.MathUtil;
 import net.vulkanmod.vulkan.Renderer;
 import net.vulkanmod.vulkan.Vulkan;
@@ -272,7 +271,7 @@ public class SwapChain extends Framebuffer {
             }
         }
 
-        Initializer.LOGGER.warn("Requested mode not supported: " + getDisplayModeString(requestedMode) + ": using FIFO present mode");
+        net.vulkanmod.Initializer.LOGGER.warn("Requested mode not supported: " + getDisplayModeString(requestedMode) + ": using FIFO present mode");
         return VK_PRESENT_MODE_FIFO_KHR;
     }
 

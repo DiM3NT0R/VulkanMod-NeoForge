@@ -2,7 +2,6 @@ package net.vulkanmod.vulkan.memory;
 
 import it.unimi.dsi.fastutil.longs.Long2ReferenceOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.render.chunk.buffer.AreaBuffer;
 import net.vulkanmod.vulkan.Vulkan;
 import net.vulkanmod.vulkan.device.DeviceManager;
@@ -118,9 +117,9 @@ public class MemoryManager {
 
             int result = vmaCreateBuffer(ALLOCATOR, bufferInfo, allocationInfo, pBuffer, pBufferMemory, null);
             if (result != VK_SUCCESS) {
-                Initializer.LOGGER.info(String.format("Failed to create buffer with size: %.3f MB", ((float) size / BYTES_IN_MB)));
-                Initializer.LOGGER.info(String.format("Tracked Device Memory used: %d/%d MB", getAllocatedDeviceMemoryMB(), getDeviceMemoryMB()));
-                Initializer.LOGGER.info(getHeapStats());
+                net.vulkanmod.Initializer.LOGGER.info(String.format("Failed to create buffer with size: %.3f MB", ((float) size / BYTES_IN_MB)));
+                net.vulkanmod.Initializer.LOGGER.info(String.format("Tracked Device Memory used: %d/%d MB", getAllocatedDeviceMemoryMB(), getDeviceMemoryMB()));
+                net.vulkanmod.Initializer.LOGGER.info(getHeapStats());
 
                 throw new RuntimeException("Failed to create buffer: %s".formatted(VkResult.decode(result)));
             }
@@ -177,7 +176,7 @@ public class MemoryManager {
 
             int result = vmaCreateImage(ALLOCATOR, imageInfo, allocationInfo, pTextureImage, pTextureImageMemory, null);
             if (result != VK_SUCCESS) {
-                Initializer.LOGGER.info(String.format("Failed to create image with size: %dx%d", width, height));
+                net.vulkanmod.Initializer.LOGGER.info(String.format("Failed to create image with size: %dx%d", width, height));
 
                 throw new RuntimeException("Failed to create image: %s".formatted(VkResult.decode(result)));
             }

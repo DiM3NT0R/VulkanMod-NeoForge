@@ -1,6 +1,5 @@
 package net.vulkanmod.vulkan.queue;
 
-import net.vulkanmod.Initializer;
 import net.vulkanmod.vulkan.Vulkan;
 import net.vulkanmod.vulkan.device.DeviceManager;
 import org.lwjgl.PointerBuffer;
@@ -137,7 +136,7 @@ public abstract class Queue {
                 // Use compute queue as fallback
 
                 indices.presentFamily = indices.computeFamily;
-                Initializer.LOGGER.warn("Using compute queue as present fallback");
+                net.vulkanmod.Initializer.LOGGER.warn("Using compute queue as present fallback");
             }
 
             // In case there's no dedicated transfer queue, we need choose another one
